@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "sources.html",
+    "href": "sources.html",
+    "title": "Sources",
+    "section": "",
+    "text": "The data for this project comes from the World Bank’s World Development Indicators (WDI), accessed through the WDI R package.\nIndicators used:\n\nSM.POP.NETM: Net migration\nBX.TRF.PWKR.CD.DT: Personal remittances, received (current US dollars)\nSL.UEM.TOTL.ZS: Unemployment, total (% of total labor force)\nNY.GDP.PCAP.CD: GDP per capita (current US dollars)\n\nCoverage:\n\ncountry-level observations\nannual data from 2000 to 2023\nregion and income-group metadata supplied through WDI\n\nCleaning approach:\n\nrename raw WDI codes into readable variables\nremove observations with missing values where needed for each figure\ncompare countries by region and income group to preserve development context\n\nThis setup is designed for exploratory migration and development analysis and can later be extended into panel regressions, regional comparisons, or policy-focused case studies."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am Faran Abbas, a graduate student in World Economy at Shandong University. You can view my work on GitHub or contact me at faranabbas@hotmail.com.\nThis project studies migration-related indicators, remittance inflows, and labor-market outcomes across countries using World Bank data. It is designed as an economics portfolio project that connects migration, employment, and development in a reproducible Quarto workflow.\nThe repository is available here."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Immigration, Remittances, and Labor Market Outcomes",
+    "section": "",
+    "text": "This project explores migration-related economic indicators across countries, with a focus on remittance inflows, unemployment, and development outcomes.\nUsing the World Bank’s World Development Indicators, the analysis compares countries in the most recent year available and examines how migration-related variables vary across income groups over time. The goal is to create a clear, reproducible starting point for thinking about migration as a labor-market and development issue."
+  },
+  {
+    "objectID": "index.html#summary",
+    "href": "index.html#summary",
+    "title": "Immigration, Remittances, and Labor Market Outcomes",
+    "section": "",
+    "text": "This project explores migration-related economic indicators across countries, with a focus on remittance inflows, unemployment, and development outcomes.\nUsing the World Bank’s World Development Indicators, the analysis compares countries in the most recent year available and examines how migration-related variables vary across income groups over time. The goal is to create a clear, reproducible starting point for thinking about migration as a labor-market and development issue."
+  },
+  {
+    "objectID": "index.html#cross-country-comparison",
+    "href": "index.html#cross-country-comparison",
+    "title": "Immigration, Remittances, and Labor Market Outcomes",
+    "section": "Cross-Country Comparison",
+    "text": "Cross-Country Comparison\n\n\n\n\n\nRemittances and Unemployment Across Countries (2023)"
+  },
+  {
+    "objectID": "index.html#income-group-trends",
+    "href": "index.html#income-group-trends",
+    "title": "Immigration, Remittances, and Labor Market Outcomes",
+    "section": "Income Group Trends",
+    "text": "Income Group Trends\n\n\n\n\n\nAverage Net Migration by Income Group (2000-2023)"
+  },
+  {
+    "objectID": "index.html#snapshot-table",
+    "href": "index.html#snapshot-table",
+    "title": "Immigration, Remittances, and Labor Market Outcomes",
+    "section": "Snapshot Table",
+    "text": "Snapshot Table\n\n\n\nSelected 2023 Country Snapshot\n\n\n\n\n\n\n\n\n\n\nCountry\nRegion\nIncome Group\nRemittances (US\\()| Unemployment (%)| GDP per Capita (US\\))\n\n\n\n\n\n\nWorld\nAggregates\nAggregates\n799418485648\n4.8\n13237\n\n\nIDA & IBRD total\nAggregates\nAggregates\n631224192821\n5.0\n6150\n\n\nLow & middle income\nAggregates\nAggregates\n596459498523\n5.0\n5856\n\n\nMiddle income\nAggregates\nAggregates\n585431592607\n5.0\n6386\n\n\nIBRD only\nAggregates\nAggregates\n438279127952\n5.1\n7925\n\n\nEarly-demographic dividend\nAggregates\nAggregates\n431783315078\n5.1\n4253\n\n\nOECD members\nAggregates\nAggregates\n244281926886\n4.8\n46580\n\n\nEurope & Central Asia\nAggregates\nAggregates\n224319647489\n5.6\n29989\n\n\nPost-demographic dividend\nAggregates\nAggregates\n179827031325\n4.5\n53814\n\n\nIDA total\nAggregates\nAggregates\n159974491470\n4.4\n1536\n\n\nSouth Asia\nAggregates\nAggregates\n158496423783\n4.2\n2532\n\n\nSouth Asia (IDA & IBRD)\nAggregates\nAggregates\n158496423783\n4.2\n2532"
+  },
+  {
+    "objectID": "index.html#interpretation",
+    "href": "index.html#interpretation",
+    "title": "Immigration, Remittances, and Labor Market Outcomes",
+    "section": "Interpretation",
+    "text": "Interpretation\nThis project is meant for careful exploratory comparison rather than strong causal claims. Differences in remittance inflows, migration balances, and labor-market outcomes can reflect institutions, conflict, demographic structure, opportunity, and broader development conditions, making the topic well suited for deeper economics analysis."
+  }
+]

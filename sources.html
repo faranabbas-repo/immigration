@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Immigration, Remittances, and Labor Market Outcomes – Migration and Development</title>
+<title>Sources – Migration and Development</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -122,11 +93,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sources.html"> 
+    <a class="nav-link active" href="./sources.html" aria-current="page"> 
 <span class="menu-text">Sources</span></a>
   </li>  
   <li class="nav-item">
@@ -144,26 +115,15 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#cross-country-comparison" id="toc-cross-country-comparison" class="nav-link" data-scroll-target="#cross-country-comparison">Cross-Country Comparison</a></li>
-  <li><a href="#income-group-trends" id="toc-income-group-trends" class="nav-link" data-scroll-target="#income-group-trends">Income Group Trends</a></li>
-  <li><a href="#snapshot-table" id="toc-snapshot-table" class="nav-link" data-scroll-target="#snapshot-table">Snapshot Table</a></li>
-  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Immigration, Remittances, and Labor Market Outcomes</h1>
-<p class="subtitle lead">An exploratory development and labor-economics project using World Bank data</p>
+<h1 class="title">Sources</h1>
 </div>
 
 
@@ -180,169 +140,29 @@ window.Quarto = {
 </header>
 
 
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>This project explores migration-related economic indicators across countries, with a focus on remittance inflows, unemployment, and development outcomes.</p>
-<p>Using the World Bank’s World Development Indicators, the analysis compares countries in the most recent year available and examines how migration-related variables vary across income groups over time. The goal is to create a clear, reproducible starting point for thinking about migration as a labor-market and development issue.</p>
-</section>
-<section id="cross-country-comparison" class="level2">
-<h2 class="anchored" data-anchor-id="cross-country-comparison">Cross-Country Comparison</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Remittances and Unemployment Across Countries (2023)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="income-group-trends" class="level2">
-<h2 class="anchored" data-anchor-id="income-group-trends">Income Group Trends</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Average Net Migration by Income Group (2000-2023)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="snapshot-table" class="level2">
-<h2 class="anchored" data-anchor-id="snapshot-table">Snapshot Table</h2>
-<div class="cell" data-tbl-cap="Selected 2023 Country Snapshot">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Selected 2023 Country Snapshot</caption>
-<colgroup>
-<col style="width: 25%">
-<col style="width: 10%">
-<col style="width: 12%">
-<col style="width: 16%">
-<col style="width: 15%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Country</th>
-<th style="text-align: left;">Region</th>
-<th style="text-align: left;">Income Group</th>
-<th style="text-align: right;">Remittances (US<span class="math inline">\()| Unemployment (%)| GDP per Capita (US\)</span>)</th>
-<th style="text-align: right;"></th>
-<th style="text-align: right;"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">World</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">799418485648</td>
-<td style="text-align: right;">4.8</td>
-<td style="text-align: right;">13237</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">IDA &amp; IBRD total</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">631224192821</td>
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">6150</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Low &amp; middle income</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">596459498523</td>
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">5856</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Middle income</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">585431592607</td>
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">6386</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">IBRD only</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">438279127952</td>
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">7925</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Early-demographic dividend</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">431783315078</td>
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">4253</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">OECD members</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">244281926886</td>
-<td style="text-align: right;">4.8</td>
-<td style="text-align: right;">46580</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Europe &amp; Central Asia</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">224319647489</td>
-<td style="text-align: right;">5.6</td>
-<td style="text-align: right;">29989</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Post-demographic dividend</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">179827031325</td>
-<td style="text-align: right;">4.5</td>
-<td style="text-align: right;">53814</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">IDA total</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">159974491470</td>
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">1536</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">South Asia</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">158496423783</td>
-<td style="text-align: right;">4.2</td>
-<td style="text-align: right;">2532</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">South Asia (IDA &amp; IBRD)</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: left;">Aggregates</td>
-<td style="text-align: right;">158496423783</td>
-<td style="text-align: right;">4.2</td>
-<td style="text-align: right;">2532</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="interpretation">Interpretation</h2>
-<p>This project is meant for careful exploratory comparison rather than strong causal claims. Differences in remittance inflows, migration balances, and labor-market outcomes can reflect institutions, conflict, demographic structure, opportunity, and broader development conditions, making the topic well suited for deeper economics analysis.</p>
+<p>The data for this project comes from the World Bank’s World Development Indicators (WDI), accessed through the <code>WDI</code> R package.</p>
+<p>Indicators used:</p>
+<ul>
+<li><code>SM.POP.NETM</code>: Net migration</li>
+<li><code>BX.TRF.PWKR.CD.DT</code>: Personal remittances, received (current US dollars)</li>
+<li><code>SL.UEM.TOTL.ZS</code>: Unemployment, total (% of total labor force)</li>
+<li><code>NY.GDP.PCAP.CD</code>: GDP per capita (current US dollars)</li>
+</ul>
+<p>Coverage:</p>
+<ul>
+<li>country-level observations</li>
+<li>annual data from 2000 to 2023</li>
+<li>region and income-group metadata supplied through WDI</li>
+</ul>
+<p>Cleaning approach:</p>
+<ul>
+<li>rename raw WDI codes into readable variables</li>
+<li>remove observations with missing values where needed for each figure</li>
+<li>compare countries by region and income group to preserve development context</li>
+</ul>
+<p>This setup is designed for exploratory migration and development analysis and can later be extended into panel regressions, regional comparisons, or policy-focused case studies.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
