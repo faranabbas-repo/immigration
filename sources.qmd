@@ -1,0 +1,27 @@
+---
+title: "Sources"
+format: html
+---
+
+The data for this project comes from the World Bank's World Development Indicators (WDI), accessed through the `WDI` R package.
+
+Indicators used:
+
+- `SM.POP.NETM`: Net migration
+- `BX.TRF.PWKR.CD.DT`: Personal remittances, received (current US dollars)
+- `SL.UEM.TOTL.ZS`: Unemployment, total (% of total labor force)
+- `NY.GDP.PCAP.CD`: GDP per capita (current US dollars)
+
+Coverage:
+
+- country-level observations
+- annual data from 2000 to 2023
+- region and income-group metadata supplied through WDI
+
+Cleaning approach:
+
+- rename raw WDI codes into readable variables
+- remove observations with missing values where needed for each figure
+- compare countries by region and income group to preserve development context
+
+This setup is designed for exploratory migration and development analysis and can later be extended into panel regressions, regional comparisons, or policy-focused case studies.

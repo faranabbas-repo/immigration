@@ -1,0 +1,10 @@
+---
+title: "About"
+format: html
+---
+
+I am Faran Abbas, a graduate student in World Economy at Shandong University. You can view my work on [GitHub](https://github.com/faranabbas-repo) or contact me at [faranabbas@hotmail.com](mailto:faranabbas@hotmail.com).
+
+This project studies migration-related indicators, remittance inflows, and labor-market outcomes across countries using World Bank data. It is designed as an economics portfolio project that connects migration, employment, and development in a reproducible Quarto workflow.
+
+The repository is available [here](https://github.com/faranabbas-repo/immigration).

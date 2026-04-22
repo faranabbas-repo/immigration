@@ -1,0 +1,123 @@
+---
+title: "Immigration, Remittances, and Labor Market Outcomes"
+subtitle: "An exploratory development and labor-economics project using World Bank data"
+format: html
+---
+
+```{r}
+#| message: false
+library(WDI)
+library(tidyverse)
+library(ggplot2)
+library(scales)
+library(knitr)
+
+indicators <- c(
+  "SM.POP.NETM",          # Net migration
+  "BX.TRF.PWKR.CD.DT",    # Personal remittances, received
+  "SL.UEM.TOTL.ZS",       # Unemployment rate
+  "NY.GDP.PCAP.CD"        # GDP per capita
+)
+
+wdi_data <- WDI(
+  indicator = indicators,
+  start = 2000,
+  end = 2023,
+  extra = TRUE
+)
+
+analysis_data <- wdi_data |>
+  rename(
+    net_migration = SM.POP.NETM,
+    remittances_received = BX.TRF.PWKR.CD.DT,
+    unemployment_rate = SL.UEM.TOTL.ZS,
+    gdp_per_capita = NY.GDP.PCAP.CD
+  ) |>
+  filter(!is.na(region), !is.na(income))
+
+latest_data <- analysis_data |>
+  filter(
+    year == 2023,
+    !is.na(remittances_received),
+    !is.na(unemployment_rate),
+    !is.na(gdp_per_capita)
+  )
+```
+
+## Summary
+
+This project explores migration-related economic indicators across countries, with a focus on remittance inflows, unemployment, and development outcomes.
+
+Using the World Bank's World Development Indicators, the analysis compares countries in the most recent year available and examines how migration-related variables vary across income groups over time. The goal is to create a clear, reproducible starting point for thinking about migration as a labor-market and development issue.
+
+## Cross-Country Comparison
+
+```{r}
+#| fig-cap: "Remittances and Unemployment Across Countries (2023)"
+
+ggplot(latest_data, aes(x = remittances_received, y = unemployment_rate)) +
+  geom_point(aes(color = region, size = gdp_per_capita), alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE, color = "black", linewidth = 0.7) +
+  scale_x_log10(labels = label_number(scale_cut = cut_short_scale())) +
+  scale_size_continuous(name = "GDP per Capita", range = c(2, 9)) +
+  labs(
+    title = "Remittance Inflows and Labor-Market Outcomes",
+    subtitle = "Bubble size represents GDP per capita",
+    x = "Personal Remittances Received (log scale)",
+    y = "Unemployment Rate (%)",
+    color = "Region"
+  ) +
+  theme_minimal()
+```
+
+## Income Group Trends
+
+```{r}
+#| fig-cap: "Average Net Migration by Income Group (2000-2023)"
+
+migration_trends <- analysis_data |>
+  filter(!is.na(net_migration), !is.na(income)) |>
+  group_by(year, income) |>
+  summarise(avg_net_migration = mean(net_migration, na.rm = TRUE), .groups = "drop")
+
+ggplot(migration_trends, aes(x = year, y = avg_net_migration, color = income)) +
+  geom_line(linewidth = 1) +
+  labs(
+    title = "Net Migration Trends by Income Group",
+    x = "Year",
+    y = "Average Net Migration",
+    color = "Income Group"
+  ) +
+  theme_minimal()
+```
+
+## Snapshot Table
+
+```{r}
+#| tbl-cap: "Selected 2023 Country Snapshot"
+
+latest_data |>
+  select(country, region, income, remittances_received, unemployment_rate, gdp_per_capita) |>
+  arrange(desc(remittances_received)) |>
+  slice_head(n = 12) |>
+  mutate(
+    remittances_received = round(remittances_received, 0),
+    unemployment_rate = round(unemployment_rate, 1),
+    gdp_per_capita = round(gdp_per_capita, 0)
+  ) |>
+  knitr::kable(
+    col.names = c(
+      "Country",
+      "Region",
+      "Income Group",
+      "Remittances (US$)",
+      "Unemployment (%)",
+      "GDP per Capita (US$)"
+    ),
+    format = "markdown"
+  )
+```
+
+## Interpretation
+
+This project is meant for careful exploratory comparison rather than strong causal claims. Differences in remittance inflows, migration balances, and labor-market outcomes can reflect institutions, conflict, demographic structure, opportunity, and broader development conditions, making the topic well suited for deeper economics analysis.
