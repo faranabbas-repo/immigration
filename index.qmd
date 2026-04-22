@@ -12,27 +12,44 @@ library(ggplot2)
 library(scales)
 library(knitr)
 
-indicators <- c(
-  "SM.POP.NETM",          # Net migration
-  "BX.TRF.PWKR.CD.DT",    # Personal remittances, received
-  "SL.UEM.TOTL.ZS",       # Unemployment rate
-  "NY.GDP.PCAP.CD"        # GDP per capita
-)
+fetch_indicator <- function(code, value_name, include_extra = FALSE, retries = 3) {
+  for (attempt in seq_len(retries)) {
+    result <- try(
+      WDI(
+        indicator = code,
+        start = 2000,
+        end = 2023,
+        extra = include_extra
+      ),
+      silent = TRUE
+    )
 
-wdi_data <- WDI(
-  indicator = indicators,
-  start = 2000,
-  end = 2023,
-  extra = TRUE
-)
+    if (!inherits(result, "try-error") && code %in% names(result)) {
+      if (include_extra) {
+        return(result |>
+          rename(!!value_name := all_of(code)))
+      }
 
-analysis_data <- wdi_data |>
-  rename(
-    net_migration = SM.POP.NETM,
-    remittances_received = BX.TRF.PWKR.CD.DT,
-    unemployment_rate = SL.UEM.TOTL.ZS,
-    gdp_per_capita = NY.GDP.PCAP.CD
-  ) |>
+      return(result |>
+        select(country, iso2c, iso3c, year, all_of(code)) |>
+        rename(!!value_name := all_of(code)))
+    }
+
+    Sys.sleep(2 * attempt)
+  }
+
+  stop(paste("Unable to download indicator:", code))
+}
+
+migration_data <- fetch_indicator("SM.POP.NETM", "net_migration", include_extra = TRUE)
+remittance_data <- fetch_indicator("BX.TRF.PWKR.CD.DT", "remittances_received")
+unemployment_data <- fetch_indicator("SL.UEM.TOTL.ZS", "unemployment_rate")
+gdp_data <- fetch_indicator("NY.GDP.PCAP.CD", "gdp_per_capita")
+
+analysis_data <- migration_data |>
+  left_join(remittance_data, by = c("country", "iso2c", "iso3c", "year")) |>
+  left_join(unemployment_data, by = c("country", "iso2c", "iso3c", "year")) |>
+  left_join(gdp_data, by = c("country", "iso2c", "iso3c", "year")) |>
   filter(!is.na(region), !is.na(income))
 
 latest_data <- analysis_data |>
